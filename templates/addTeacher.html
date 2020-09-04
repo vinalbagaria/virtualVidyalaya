@@ -1,0 +1,13 @@
+{% extends "adminIndex.html" %}
+{% block content %}
+<form action="/addTeacher/" method="post">{% csrf_token %}
+    <input type="text" name="first_name" placeholder="First Name" required>
+    <input type="text" name="last_name" placeholder="Last Name" required>
+    <input type="text" name="qualification" placeholder="Qualifications" required>
+    <input type="text" name="research_interests" placeholder="Research Interests" required>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="username" placeholder="Email Id" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Add">
+</form>
+{% endblock %}

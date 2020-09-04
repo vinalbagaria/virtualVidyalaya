@@ -1,0 +1,17 @@
+{% extends "teacherIndex.html" %}
+{% block content %}
+<form action="/addStudent/" method="post">{% csrf_token %}
+    <input type="text" name="first_name" placeholder="First Name" required>
+    <input type="text" name="last_name" placeholder="Last Name" required>
+    <input type="text" name="about_me" placeholder="Description" required>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email_id" placeholder="Email id" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <select name="class_id">
+        {% for class in classes %}
+        <option value="{{ class.0 }}">{{ class.1 }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Add">
+</form>
+{% endblock %}

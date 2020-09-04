@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Index</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/addStudent/">Add Student</a></li>
+            <li><a href="/addTeacher/">Add Teacher</a></li>
+            <li><a href="/addAdmin/">Add Admin</a></li>
+            <li><a href="/logout/">Logout</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
