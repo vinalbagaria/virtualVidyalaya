@@ -3,9 +3,9 @@ from utility_functions.date_functions import *
 from utility_functions.db_functions import *
 
 def adminIndex(request):
-    if checkIfLoggedIn(request) == None:
-        return render(request,'login.html')
-    return checkIfLoggedIn(request)
+
+    return render(request,'adminIndex.html')
+
 
 def addTeacher(request):
     if request.session.has_key('user_id') and not request.session.has_key('teacher_id') and not request.session.has_key('student_id'):

@@ -1,0 +1,62 @@
+{% extends "studentIndex.html" %}
+{% block content %}
+
+    <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 500px;">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Assignments</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -50px">
+      <div class="container">
+        <div class="row">
+            {%  for assignment in assignments %}
+                <div class="col-lg-4">
+                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
+                    {% if cur_date_time >=  assignment.1  %}
+                        <span class="course-price" style="background: red">Due Date - {{ assignment.1 }}</span>
+                    {% else %}
+                        <span class="course-price" style="background: green">Due Date - {{ assignment.1 }}</span>
+                    {% endif %}
+                    <h3><a href="/submitAssignment/{{ assignment.2 }}">{{ assignment.0 }}</a></h3>
+                  </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+      </div>
+
+
+    <div class="site-section courses-title" id="courses-section" style="position: relative;top: 0; height: 1000px;">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Exams</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -600px">
+      <div class="container">
+        <div class="row">
+            {%  for exam in exams %}
+                <div class="col-lg-4">
+                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
+                    {% if cur_date_time >=  exam.1  %}
+                        <span class="course-price" style="background: red">Due Date - {{ exam.1 }}</span>
+                    {% else %}
+                        <span class="course-price" style="background: green">Due Date - {{ exam.1 }}</span>
+                    {% endif %}
+                    <h3><a href="/startTest/{{ exam.2 }}">{{ exam.0 }}</a></h3>
+                  </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+      </div>
+{% endblock %}

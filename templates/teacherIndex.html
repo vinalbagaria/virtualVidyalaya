@@ -1,0 +1,379 @@
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Teacher Index</title>#}
+{#    <script>#}
+{#        var count = 1;#}
+{#        function changeLayout(id) {#}
+{#            details_layout = document.getElementById("details_layout");#}
+{#            question_layout = document.getElementById("question_layout");#}
+{#            if(id === 'exam_details'){#}
+{#                details_layout.style.display = "block";#}
+{#                question_layout.style.display = "none";#}
+{#            }#}
+{#            else{#}
+{#                question_layout.style.display = "block";#}
+{#                details_layout.style.display = "none";#}
+{#            }#}
+{#        }#}
+{##}
+{#        function getCount(){#}
+{#            count++;#}
+{#            return count;#}
+{#        }#}
+{##}
+{#        function addQuestion(){#}
+{#            var wrapper1= document.createElement('div');#}
+{#            var wrapper2= document.createElement('div');#}
+{#            var wrapper3= document.createElement('div');#}
+{#            var cnt = getCount();#}
+{#            wrapper1.innerHTML= '<div ><h3>Question ' + cnt + '</h3>\n' +#}
+{#                '            <input name="question_'+cnt+'" type = "text"  placeholder="Enter Question">\n' +#}
+{#                '            <select name="type_'+cnt+'" onchange="getAnswer(this)">\n' +#}
+{#                '                <option name="true_false">True/False</option>\n' +#}
+{#                '                <option name="mcq">MCQ</option>\n' +#}
+{#                '                <option name="one_word">One Word Answer</option>\n' +#}
+{#                '                <option name="short_answer">Short Answer</option>\n' +#}
+{#                '                <option name="descriptive_answer">Descriptive Answer</option>\n' +#}
+{#                '            </select>\n' +#}
+{#                '        </div>';#}
+{##}
+{#            wrapper2.innerHTML= '<div name="answer_' + cnt + '"><h3>Answer ' + cnt + '</h3>\n' +#}
+{#                '            <input type="radio" name="true_false_ans_' + cnt + '" value="True">True\n' +#}
+{#                '            <input type="radio" name="true_false_ans_' + cnt + '" value="False">False\n' +#}
+{#                '        </div>';#}
+{##}
+{#            wrapper3.innerHTML= '<div name="mks_' + cnt + '"><h3>Marks ' + cnt + '</h3>\n' +#}
+{#                '            <input type="text" name="marks_' + cnt + '" onchange="setTotalMks(this)">' +#}
+{#                '        </div>';#}
+{#            var question= wrapper1.firstChild;#}
+{#            var answer= wrapper2.firstChild;#}
+{#            var mks= wrapper3.firstChild;#}
+{#            question_layout.append(question);#}
+{#            question_layout.append(answer);#}
+{#            question_layout.append(mks);#}
+{#            var no_of_questions = document.getElementsByName('no_of_questions')[0];#}
+{#            no_of_questions.value = parseInt(no_of_questions.value) + 1;#}
+{#        }#}
+{##}
+{#        function setValue(ipValue) {#}
+{#            var id = ipValue.name;#}
+{#            document.getElementById(id).value = ipValue.value;#}
+{#        }#}
+{##}
+{#        function setTotalMks(ipValue) {#}
+{#            var no_of_questions = parseInt(document.getElementsByName('no_of_questions')[0].value);#}
+{#            var mks = 0;#}
+{#            for (var i = 1; i < no_of_questions+1; i++) {#}
+{#                mks += parseFloat(document.getElementsByName('marks_'+i)[0].value);#}
+{#            }#}
+{#            var total_mks = document.getElementsByName('total_marks')[0];#}
+{#            console.log(mks);#}
+{#            total_mks.value = mks;#}
+{#        }#}
+{##}
+{#        function getAnswer(questionType) {#}
+{#            var type = questionType.value;#}
+{#            var name = questionType.name;#}
+{#            var cnt = name[name.length-1];#}
+{#            var answer= document.getElementsByName("answer_"+cnt)[0];#}
+{#            console.log(type);#}
+{#            switch(type) {#}
+{#                case  'True/False':#}
+{#                    answer.innerHTML= '<h3>Answer ' + cnt + '</h3>\n' +#}
+{#                    '            <input type="radio" name="true_false_ans_' + cnt + '" value="True">True<br>\n' +#}
+{#                    '            <input type="radio" name="true_false_ans_' + cnt + '" value="False">False\n';#}
+{#                    break;#}
+{#                case  'MCQ':#}
+{#                    console.log(answer);#}
+{#                    answer.innerHTML= '<h3>Answer ' + cnt + '</h3>\n' +#}
+{#                    '            <input type="radio" id= "option1_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option1"><input name= "option1_' + cnt + '" type="text" oninput="setValue(this)" required><br>\n' +#}
+{#                    '            <input type="radio" id= "option2_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option2"><input name= "option2_' + cnt + '" type="text" oninput="setValue(this)" required><br>\n' +#}
+{#                    '            <input type="radio" id= "option3_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option3"><input name= "option3_' + cnt + '" type="text" oninput="setValue(this)" required><br>\n' +#}
+{#                    '            <input type="radio" id= "option4_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option4"><input name= "option4_' + cnt + '" type="text" oninput="setValue(this)" required>\n';#}
+{#                    break;#}
+{#                case  'One Word Answer':#}
+{#                    answer.innerHTML= '<h3>Answer ' + cnt + '</h3>\n' +#}
+{#                    '            <input type="text" name="one_word_' + cnt + '" placeholder="One Word Only">\n';#}
+{#                    break;#}
+{#                case  'Short Answer':#}
+{#                    answer.innerHTML= '<h3>Answer ' + cnt + '</h3>\n' +#}
+{#                    '            <textarea name="short_ans_' + cnt + '" placeholder="Short Answer"></textarea>';#}
+{#                    break;#}
+{#                case  'Descriptive Answer':#}
+{#                    answer.innerHTML= '<h3>Answer ' + cnt + '</h3>\n' +#}
+{#                    '            <textarea name="descriptive_ans_' + cnt + '" placeholder="Descriptive Answer"></textarea>';#}
+{#                    break;#}
+{#            }#}
+{##}
+{##}
+{#        }#}
+{##}
+{##}
+{##}
+{#    </script>#}
+{#</head>#}
+{#<body>#}
+{#    <nav>#}
+{#        <ul>#}
+{#            <li><a href="/createClass/">Create Class</a></li>#}
+{#            <li><a href="/createCourse/">Create Course</a></li>#}
+{#            <li><a href="/addStudent/">Add Student</a></li>#}
+{#            <li><a href="/logout/">Logout</a></li>#}
+{#        </ul>#}
+{#    </nav>#}
+{#    {% block content %}#}
+{#        {% for course in courses %}#}
+{#            <table>#}
+{#                <tr><th><a href = "/courseForTeachers/{{ course.4 }}">{{ course.0 }}</a></th></tr>#}
+{#                <tr><td>Course Incharge - {{ course.1 }}</td></tr>#}
+{#                <tr><td>Date Added - {{ course.2 }}</td></tr>#}
+{#                <tr><td>Description - {{ course.3 }}</td></tr>#}
+{#            </table>#}
+{#        {% endfor %}#}
+{#    {% endblock %}#}
+{#</body>#}
+{#</html>#}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Virtual विद्यालय</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+      <script>
+        var count = 1;
+        function changeLayout(id) {
+            details_layout = document.getElementById("details_layout");
+            question_layout = document.getElementById("question_layout");
+            if(id === 'exam_details'){
+                details_layout.style.display = "block";
+                question_layout.style.display = "none";
+            }
+            else{
+                question_layout.style.display = "block";
+                details_layout.style.display = "none";
+            }
+        }
+
+        function getCount(){
+            count++;
+            return count;
+        }
+
+        function addQuestion(){
+            var wrapper1= document.createElement('div');
+            var wrapper2= document.createElement('div');
+            var wrapper3= document.createElement('div');
+            var cnt = getCount();
+            wrapper1.innerHTML= '<div ><h4>Question ' + cnt + '</h4>\n' +
+                '            <input name="question_'+cnt+'" type = "text"  placeholder="Enter Question">\n' +
+                '            <select name="type_'+cnt+'" onchange="getAnswer(this)">\n' +
+                '                <option name="true_false">True/False</option>\n' +
+                '                <option name="mcq">MCQ</option>\n' +
+                '                <option name="one_word">One Word Answer</option>\n' +
+                '                <option name="short_answer">Short Answer</option>\n' +
+                '                <option name="descriptive_answer">Descriptive Answer</option>\n' +
+                '            </select>\n' +
+                '        </div>';
+
+            wrapper2.innerHTML= '<div name="answer_' + cnt + '"><h4>Answer</h4>\n' +
+                '            <input type="radio" name="true_false_ans_' + cnt + '" value="True">True\n' +
+                '            <input type="radio" name="true_false_ans_' + cnt + '" value="False">False\n' +
+                '        </div>';
+
+            wrapper3.innerHTML= '<div name="mks_' + cnt + '"><h4>Marks</h4>\n' +
+                '            <input type="text" name="marks_' + cnt + '" onchange="setTotalMks(this)">' +
+                '        </div>';
+            var question= wrapper1.firstChild;
+            var answer= wrapper2.firstChild;
+            var mks= wrapper3.firstChild;
+            var newDiv = document.createElement('div');
+            newDiv.className = "form-box";
+            newDiv.append(question);
+            newDiv.append(answer);
+            newDiv.append(mks);
+            question_layout.append(newDiv);
+            {#question_layout.append(question);#}
+            {#question_layout.append(answer);#}
+            {#question_layout.append(mks);#}
+            var no_of_questions = document.getElementsByName('no_of_questions')[0];
+            no_of_questions.value = parseInt(no_of_questions.value) + 1;
+        }
+
+        function setValue(ipValue) {
+            var id = ipValue.name;
+            document.getElementById(id).value = ipValue.value;
+        }
+
+        function setTotalMks(ipValue) {
+            var no_of_questions = parseInt(document.getElementsByName('no_of_questions')[0].value);
+            var mks = 0;
+            for (var i = 1; i < no_of_questions+1; i++) {
+                mks += parseFloat(document.getElementsByName('marks_'+i)[0].value);
+            }
+            var total_mks = document.getElementsByName('total_marks')[0];
+            console.log(mks);
+            total_mks.value = mks;
+        }
+
+        function getAnswer(questionType) {
+            var type = questionType.value;
+            var name = questionType.name;
+            var cnt = name[name.length-1];
+            var answer= document.getElementsByName("answer_"+cnt)[0];
+            console.log(type);
+            switch(type) {
+                case  'True/False':
+                    answer.innerHTML= '<h3>Answer ' + cnt + '</h3>\n' +
+                    '            <input type="radio" name="true_false_ans_' + cnt + '" value="True">True<br>\n' +
+                    '            <input type="radio" name="true_false_ans_' + cnt + '" value="False">False\n';
+                    break;
+                case  'MCQ':
+                    console.log(answer);
+                    answer.innerHTML= '<h3>Answer</h3>\n' +
+                    '            <input type="radio" id= "option1_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option1"><input name= "option1_' + cnt + '" type="text" oninput="setValue(this)" required><br>\n' +
+                    '            <input type="radio" id= "option2_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option2"><input name= "option2_' + cnt + '" type="text" oninput="setValue(this)" required><br>\n' +
+                    '            <input type="radio" id= "option3_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option3"><input name= "option3_' + cnt + '" type="text" oninput="setValue(this)" required><br>\n' +
+                    '            <input type="radio" id= "option4_' + cnt + '"name="mcq_ans_' + cnt + '" value = "option4"><input name= "option4_' + cnt + '" type="text" oninput="setValue(this)" required>\n';
+                    break;
+                case  'One Word Answer':
+                    answer.innerHTML= '<h3>Answer</h3>\n' +
+                    '            <input type="text" name="one_word_' + cnt + '" placeholder="One Word Only">\n';
+                    break;
+                case  'Short Answer':
+                    answer.innerHTML= '<h3>Answer</h3>\n' +
+                    '            <textarea name="short_ans_' + cnt + '" placeholder="Short Answer"></textarea>';
+                    break;
+                case  'Descriptive Answer':
+                    answer.innerHTML= '<h3>Answer</h3>\n' +
+                    '            <textarea name="descriptive_ans_' + cnt + '" placeholder="Descriptive Answer"></textarea>';
+                    break;
+            }
+
+
+        }
+
+
+
+    </script>
+
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner" style="background-color: #ffff;">
+
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <div class="site-logo mr-auto w-25"><a href="index.html"><span style="color: BLACK">Virtual विद्यालय</span></a></div>
+
+          <div class="mx-auto text-center">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                <li><a href="/login/" class="nav-link"><span style="color: BLACK">Home</span></a></li>
+                  <li><a href="/createClass/" class="nav-link"><span style="color: BLACK">Create Class</span></a></li>
+                  <li><a href="/createCourse/" class="nav-link"><span style="color: BLACK">Create Course</span></a></li>
+                  <li><a href="/addStudent/" class="nav-link"><span style="color: BLACK">Add Student</span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="ml-auto w-25">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                <li class="cta"><a href="/logout/" class="nav-link"><span>Log out</span></a></li>
+              </ul>
+            </nav>
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+          </div>
+        </div>
+      </div>
+
+    </header>
+      {% block content %}
+      <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 1000px;">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Courses</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -550px">
+      <div class="container">
+        <div class="row">
+            {%  for course in courses %}
+                <div class="col-lg-4">
+                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
+                    <span class="course-price">{{ course.2 }}</span>
+                    <div class="meta">Incharge: {{ course.1 }}</div>
+                    <h3><a href="/courseForTeachers/{{ course.4 }}">{{ course.0 }}</a></h3>
+                    <p>Description:<br>{{ course.3 }}</p>
+                  </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+      </div>
+      {% endblock %}
+
+
+
+  </div> <!-- .site-wrap -->
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'js/jquery.sticky.js' %}"></script>
+
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>

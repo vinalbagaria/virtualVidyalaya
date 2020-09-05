@@ -1,3 +1,31 @@
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Student Index</title>#}
+{#</head>#}
+{#<body>#}
+{#    <nav>#}
+{#        <ul>#}
+{#            <li><a href="/createClass/">Create Class</a></li>#}
+{#            <li><a href="/createCourse/">Create Course</a></li>#}
+{#            <li><a href="/addStudent/">Add Student</a></li>#}
+{#            <li><a href="/logout/">Logout</a></li>#}
+{#        </ul>#}
+{#    </nav>#}
+{#    {% block content %}#}
+{#        {% for course in courses %}#}
+{#            <table>#}
+{#                <tr><th><a href = "/courseForStudents/{{ course.3 }}">{{ course.0 }}</a></th></tr>#}
+{#                <tr><td>Student Name - {{ course.1 }}</td></tr>#}
+{#                <tr><td>Description - {{ course.2 }}</td></tr>#}
+{#            </table>#}
+{#        {% endfor %}#}
+{#    {% endblock %}#}
+{#</body>#}
+{#</html>#}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -49,8 +77,6 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                 <li><a href="/login/" class="nav-link"><span style="color: BLACK">Home</span></a></li>
-                <li><a href="/addTeacher/" class="nav-link"><span style="color: BLACK">Add Teacher</span></a></li>
-                <li><a href="/addAdmin/" class="nav-link"><span style="color: BLACK">Add Admin</span></a></li>
               </ul>
             </nav>
           </div>
@@ -67,6 +93,33 @@
       </div>
 
     </header>
+      {% block content %}
+      <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 1000px;">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Courses</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -550px">
+      <div class="container">
+        <div class="row">
+            {%  for course in courses %}
+                <div class="col-lg-4">
+                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
+                    <span class="course-price">{{ course.1 }}</span>
+                    <h3><a href="/courseForStudents/{{ course.3 }}">{{ course.0 }}</a></h3>
+                    <p>Description:<br>{{ course.2 }}</p>
+                  </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+      </div>
+      {% endblock %}
   {#    {% block content %}#}
 {#        {% for course in courses %}#}
 {#            <table>#}
@@ -78,40 +131,8 @@
 {#    {% endblock %}#}
 {#</body>#}
 {#</html>#}
-      {% block content %}
-    <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 1000px;">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">Admin</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -550px">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
-                    <span class="course-price"></span>
-                    <h3><a href="/addAdmin/">Add Admin</a></h3>
-                    <p>YOu can add admin who will have same functionalities</p>
-                  </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
-                    <span class="course-price"></span>
-                    <h3><a href="/addTeacher/">Add Teacher</a></h3>
-                    <p>YOu can add teachers of your college</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      </div>
 
-      {% endblock %}
+
 
   </div> <!-- .site-wrap -->
 

@@ -242,14 +242,15 @@ def gradeAutomatic(request,exam_student_id):
         assigned_marks = 0
         knowledge_marks = 0
         grammar_marks = 0
+        msgs =""
         if type == 'One Word Answer' or type == 'MCQ' or type == 'True/False':
             if actualAnswer == studentAnswer:
                 assigned_marks = marks
                 knowledge_marks = marks
         else:
-            assigned_marks,knowledge_marks,grammar_marks = evaluate(actualAnswer,studentAnswer,type,knowledge_ratio,grammar_ratio,marks)
-        query = "update questions_students set marks = %s,knowledge_marks =%s,grammar_marks=%s where id = %s"
+            assigned_marks,knowledge_marks,grammar_marks,msgs = evaluate(actualAnswer,studentAnswer,type,knowledge_ratio,grammar_ratio,marks)
+        query = "update questions_students set marks = %s,knowledge_marks =%s,grammar_marks=%s,feedback = %s where id = %s"
         print(assigned_marks,knowledge_marks,grammar_marks,data[i][0],actualAnswer,studentAnswer)
-        cur.execute(query,(assigned_marks,knowledge_marks,grammar_marks,data[i][0]))
+        cur.execute(query,(assigned_marks,knowledge_marks,grammar_marks,msgs,data[i][0]))
         con.commit()
     return render(request,'successful.html')

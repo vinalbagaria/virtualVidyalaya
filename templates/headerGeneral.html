@@ -5,8 +5,8 @@
     <title>Virtual विद्यालय</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
+    
+    
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
 
@@ -24,9 +24,10 @@
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
+  
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -37,20 +38,20 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-
-
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner" style="background-color: #ffff;">
-
+   
+    
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner" style="background: WHITE">
+      
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-            <div class="site-logo mr-auto w-25"><a href="index.html"><span style="color: BLACK">Virtual विद्यालय</span></a></div>
+            <div class="site-logo mr-auto w-25"><a href="index.html"><span style="color: BLACK">Virtual विद्यालय </span></a></div>
 
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                <li><a href="/login/" class="nav-link"><span style="color: BLACK">Home</span></a></li>
-                <li><a href="/addTeacher/" class="nav-link"><span style="color: BLACK">Add Teacher</span></a></li>
-                <li><a href="/addAdmin/" class="nav-link"><span style="color: BLACK">Add Admin</span></a></li>
+                  <li><a href="/" class="nav-link"><span style="color: BLACK">Home</span></a></li>
+                  <li><a href="/demo/" class="nav-link"><span style="color: BLACK">Demo</span></a></li>
+                  <li><a href="/aboutus/" class="nav-link"><span style="color: BLACK">About Us</span></a></li>
               </ul>
             </nav>
           </div>
@@ -58,60 +59,43 @@
           <div class="ml-auto w-25">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                <li class="cta"><a href="/logout/" class="nav-link"><span>Log out</span></a></li>
+                <li class="cta"><a href="/login/" class="nav-link"><span>Login</span></a></li>
               </ul>
             </nav>
             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
           </div>
         </div>
       </div>
-
+      
     </header>
-  {#    {% block content %}#}
-{#        {% for course in courses %}#}
-{#            <table>#}
-{#                <tr><th><a href = "/courseForStudents/{{ course.3 }}">{{ course.0 }}</a></th></tr>#}
-{#                <tr><td>Student Name - {{ course.1 }}</td></tr>#}
-{#                <tr><td>Description - {{ course.2 }}</td></tr>#}
-{#            </table>#}
-{#        {% endfor %}#}
-{#    {% endblock %}#}
-{#</body>#}
-{#</html>#}
       {% block content %}
-    <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 1000px;">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">Admin</h2>
+      <div class="intro-section" id="home-section">
+
+      <div class="slide-1" style="background-image: url('../static/images/hero_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                  <h1  data-aos="fade-up" data-aos-delay="100">Something</h1>
+                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                  <p data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary py-3 px-5 btn-pill">Know More</a></p>
+
+                </div>
+
+
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -550px">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
-                    <span class="course-price"></span>
-                    <h3><a href="/addAdmin/">Add Admin</a></h3>
-                    <p>YOu can add admin who will have same functionalities</p>
-                  </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
-                    <span class="course-price"></span>
-                    <h3><a href="/addTeacher/">Add Teacher</a></h3>
-                    <p>YOu can add teachers of your college</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      </div>
 
       {% endblock %}
+     
+
+  
 
   </div> <!-- .site-wrap -->
 
@@ -129,8 +113,8 @@
   <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'js/jquery.sticky.js' %}"></script>
 
-
+  
   <script src="{% static 'js/main.js' %}"></script>
-
+    
   </body>
 </html>

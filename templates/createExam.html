@@ -1,0 +1,111 @@
+{#{% extends "teacherIndex.html" %}#}
+{#{% block content %}#}
+{#    <div class="intro-section" id="home-section">#}
+{#        <button id="exam_details" class="btn btn-primary btn-pill" onclick="changeLayout('exam_details')">Exam Details</button>#}
+{#        <button id="exam_question" class="btn btn-primary btn-pill" onclick="changeLayout('exam_question')">Exam Questions</button>#}
+{#      <div id="exam_layout"></div>#}
+{#        <form action="/createExam/{{ course_id }}" method="post" class="form-box">{% csrf_token %}#}
+{#    <div id="details_layout" style="display: none">#}
+{#        <h3>Exam Details</h3>#}
+{#        <input type="text" name="title" placeholder="Exam Title">#}
+{#        <input type="text" name="instructions" placeholder="Exam Instructions">#}
+{#        Total Time - <input type="number" name="total_time" placeholder="( In Minutes )"><br>#}
+{#        Exam Date - <input type="datetime-local" name="date_time"><br>#}
+{#    </div>#}
+{#    <div id="question_layout" style="display: none">#}
+{#        <h3>Exam Questions</h3>#}
+{#        No.of Questions - <input type="number" name="no_of_questions" value="1" readonly><br>#}
+{#        Total Marks - <input type="number" name="total_marks" value="0" readonly><br>#}
+{##}
+{#        <button type="button" onclick="addQuestion()">Add Question</button>#}
+{#        <input type="submit">#}
+{#        <div><h3>Question 1</h3>#}
+{#            <input name="question_1" type="text" placeholder="Enter Question">#}
+{#            <select name="type_1" onchange="getAnswer(this)">#}
+{#                <option value="True/False">True/False</option>#}
+{#                <option value="MCQ">MCQ</option>#}
+{#                <option value="One Word Answer">One Word Answer</option>#}
+{#                <option value="Short Answer">Short Answer</option>#}
+{#                <option value="Descriptive Answer">Descriptive Answer</option>#}
+{#            </select>#}
+{#        </div>#}
+{#        <div name="answer_1"><h3>Answer 1</h3>#}
+{#            <input type="radio" name="true_false_ans_1" value="True">True#}
+{#            <input type="radio" name="true_false_ans_1" value="False">False#}
+{#        </div>#}
+{#        <div name="mks_1"><h3>Marks 1</h3>#}
+{#            <input type="text" name="marks_1" onchange="setTotalMks(this)">#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    </form>#}
+{#        #}
+{#    </div>#}
+{##}
+{##}
+{#{% endblock %}#}
+{% extends "teacherIndex.html" %}
+{% block content %}
+    <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 10px;">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Create an Exam</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+        <div class="container" style="position: absolute;top: 330px;left: 500px">
+            <button id="exam_details" class="btn btn-primary btn-pill" onclick="changeLayout('exam_details')">Exam Details</button>
+            <button id="exam_question" class="btn btn-primary btn-pill" onclick="changeLayout('exam_question')">Exam Questions</button>
+
+          <div class="row align-items-center">
+             <form action="/createExam/{{ course_id }}" method="post" class="form-box">{% csrf_token %}
+
+                <div id="exam_layout"></div>
+
+                <div id="details_layout" class="form-box">
+                    <h3>Exam Details</h3>
+                    <input class="form-control" type="text" name="title" placeholder="Exam Title">
+                    <input class="form-control" type="text" name="instructions" placeholder="Exam Instructions">
+                    <input class="form-control" type="number" name="total_time" placeholder="Total Time - ( In Minutes )"><br>
+                    <input class="form-control" type="number" name="knowledge_ratio" placeholder="Knowledge Ratio (%)"><br>
+                    <input class="form-control" type="number" name="grammar_ratio" placeholder="Grammar Ratio (%)"><br>
+                    Exam Date - <input class="form-control" type="datetime-local" name="date_time"><br>
+                </div>
+
+                <div id="question_layout" style="display: none" class="form-box">
+                    <h3>Exam Questions</h3>
+                    No.of Questions - <input type="number" name="no_of_questions" value="1" readonly><br>
+                    Total Marks - <input type="number" name="total_marks" value="0" readonly><br><br>
+
+                    <button type="button"  class="btn btn-primary btn-pill" onclick="addQuestion()">Add Question</button>
+                    <input type="submit"  class="btn btn-primary btn-pill"><br><br><br><br>
+                    <div class="form-box">
+                    <div><h4>Question 1</h4>
+                        <input name="question_1" type="text" placeholder="Enter Question">
+                        <select name="type_1" onchange="getAnswer(this)">
+                            <option value="True/False">True/False</option>
+                            <option value="MCQ">MCQ</option>
+                            <option value="One Word Answer">One Word Answer</option>
+                            <option value="Short Answer">Short Answer</option>
+                            <option value="Descriptive Answer">Descriptive Answer</option>
+                        </select>
+                    </div>
+                    <div name="answer_1"><h4>Answer</h4>
+                        <input type="radio" name="true_false_ans_1" value="True">True
+                        <input type="radio" name="true_false_ans_1" value="False">False
+                    </div>
+                    <div name="mks_1"><h4>Marks</h4>
+                        <input type="text" name="marks_1" onchange="setTotalMks(this)">
+                    </div>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}
+

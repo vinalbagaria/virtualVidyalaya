@@ -1,0 +1,278 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+
+{#</head>#}
+{##}
+{#<!--countdown function is called when page is loaded -->#}
+{#<body onload="countdown();">#}
+{#<input id = "timer" type="text" value = "{{ exam.0 }}" hidden>#}
+
+{##}
+{#<form method="post" action="/submitTest/{{ exam_id }}">{% csrf_token %}#}
+{#    <p id="errordiv" style="color:red"></p>#}
+{#    {% for q in questions %}#}
+{#        <div id = "'ques_no'+{{ q.0 }}">.&nbsp;{{ q.1 }}</div>#}
+{#        <script type="text/javascript">#}
+{#            var c = getcount();#}
+{#            var qele = document.getElementById("'ques_no'+{{ q.0 }}");#}
+{#            qele.innerText = c+qele.innerText;#}
+{#        </script>#}
+{#        <div >Marks: {{ q.3}}</div>#}
+{#        <div id="{{ q.0 }}+ '_' +{{ q.4 }}"></div>#}
+{#        <script type="text/javascript">#}
+{#            getType("{{ q.0 }}+ '_' +{{ q.4 }}",{{ q.2 |safe|escape}},'{{ q.4 }}');#}
+{#        </script>#}
+{#        id,question,options,marks,`type`#}
+{#    {% endfor %}#}
+{#    <button type = "submit">Submit Test</button>#}
+{#</form>#}
+{##}
+{#</body>#}
+{##}
+{#</html>#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Virtual विद्यालय</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script>
+        var count = 0;
+        $(document).ready(function () {
+            // Disables ctrl+v, ctrl+x, ctrl+c.
+            $('body').on("cut", function (e) {
+                $("#errordiv").text('cut. not allowed!');
+                e.preventDefault();
+            });
+            $('body').on("copy", function (e) {
+                $("#errordiv").text('copy. not allowed!');
+                e.preventDefault();
+            });
+            $('body').on("paste", function (e) {
+                $("#errordiv").text('paste. not allowed!');
+                e.preventDefault();
+            });
+            // Disables right-click.
+            $('body').mousedown(function (e) {
+                if (e.button === 2) {
+                    e.preventDefault();
+                    $("#errordiv").text('right-click is disabled!');
+                }
+            });
+        });
+
+        //set minutes
+
+        var mins = 0;
+
+        //calculate the seconds
+        var secs = 0;
+        //countdown function is evoked when page is loaded
+        function countdown() {
+            mins = (document.getElementById("timer").value);
+            secs = mins*60;
+            setTimeout('Decrement()', 60);
+        }
+        //Decrement function decrement the value.
+        function Decrement() {
+            if (document.getElementById) {
+                minutes = document.getElementById("minutes");
+                seconds = document.getElementById("seconds");
+                //if less than a minute remaining Display only seconds value.
+                if (seconds < 59) {
+                    seconds.value = secs;
+                }
+                //Display both minutes and seconds
+                //getminutes and getseconds is used to get minutes and seconds
+                else {
+                    minutes.value = getminutes();
+                    seconds.value = getseconds();
+                }
+                //when less than a minute remaining colour of the minutes and seconds changes to red
+                if (mins < 1) {
+                    minutes.style.color = "red";
+                    seconds.style.color = "red";
+                }
+                //if seconds becomes zero, then page alert time up
+                if (mins < 0) {
+                    alert('time up');
+                    window.location.href = "/endTest/";
+                    minutes.value = 0;
+                    seconds.value = 0;
+                }
+                //if seconds > 0 then seconds is decremented
+                else {
+                    secs--;
+                    setTimeout('Decrement()', 1000);
+                }
+            }
+        }
+        function getminutes() {
+            //minutes is seconds divided by 60, rounded down
+            mins = Math.floor(secs / 60);
+            return mins;
+        }
+
+        function getseconds() {
+            //take minutes remaining (as seconds) away from total seconds remaining
+            return secs - Math.round(mins * 60);
+        }
+
+       {#$(window).blur(function () {#}
+       {#      if ($('html').is(':focus')) {#}
+       {#         // dont check tab switching#}
+       {#     }#}
+       {#     else {#}
+       {#         count++;#}
+       {#         if (count == 2){#}
+       {#              window.location.href = '/endTest/';#}
+       {#         }#}
+       {#         alert('You are not allowed to leave page  if you leave again then test ends');#}
+       {#         }#}
+       {##}
+       {# });#}
+        var cnt = 0;
+        function getcount(){
+            cnt++;
+            return cnt;
+        }
+        function getType(ele,options,type) {
+
+            ele = document.getElementById(ele);
+            console.log(ele,options,type);
+            switch(type) {
+                case  'True/False':
+                    ele.innerHTML= 'Answer ' + cnt + '\n' +
+                    '            <input class = "form-control" type="radio" name="true_false_ans_' + cnt + '" value="True">True<br>\n' +
+                    '            <input  class = "form-control" type="radio" name="true_false_ans_' + cnt + '" value="False">False\n';
+                    break;
+                case  'MCQ':
+                    ele.innerHTML= 'Answer ' + cnt + '\n' +
+                    '            <input  class = "form-control" type="radio" id= "option1_' + cnt + '"name="mcq_ans_' + cnt + '" value =' +options[1]+'>' + options[1] + '\n' +
+                    '            <input  class = "form-control" type="radio" id= "option2_' + cnt + '"name="mcq_ans_' + cnt + '" value ='+ options[2]+'>' + options[2] + '<br>\n' +
+                    '            <input  class = "form-control" type="radio" id= "option3_' + cnt + '"name="mcq_ans_' + cnt + '" value =' +options[3]+'>' + options[3] + '<br>\n' +
+                    '            <input  class = "form-control" type="radio" id= "option4_' + cnt + '"name="mcq_ans_' + cnt + '" value ='+ options[4]+'>' + options[4] + '\n';
+                    break;
+                case  'One Word Answer':
+                    ele.innerHTML= 'Answer ' + cnt + '\n' +
+                    '            <input  class = "form-control" type="text" name="one_word_' + cnt + '" placeholder="One Word Only">\n';
+                    break;
+                case  'Short Answer':
+                    ele.innerHTML= 'Answer ' + cnt + '\n' +
+                    '            <textarea  class = "form-control" name="short_ans_' + cnt + '" placeholder="Short Answer"></textarea>';
+                    CKEDITOR.replace("short_ans_" + cnt);
+                    break;
+                case  'Descriptive Answer':
+                    ele.innerHTML= '<h4>Answer ' + cnt + '</h4>\n' +
+                    '            <textarea  class = "form-control" name="descriptive_ans_' + cnt + '" placeholder="Descriptive Answer"></textarea>';
+                    CKEDITOR.replace("descriptive_ans_" + cnt);
+                    break;
+            }
+        }
+    </script>
+  </head>
+  <body onload="countdown();">
+    <input id = "timer" type="text" value = "{{ exam.0 }}" hidden>
+    <div style="color:#7971ea;position: absolute;left:5px">
+    Time Left ::
+        <input id="minutes" type="text" style="width: 20px;
+                border: none;
+                font-weight: bold; color: black; "><font size="5"> :</font>
+        <input id="seconds" type="text" style="width: 30px;
+                            border: none; font-weight: bold; color: black;">
+    </div><br><br><br><br>
+  <div class="site-wrap">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+      <div class="intro-section" id="home-section">
+
+      <div  data-stellar-background-ratio="0.5">
+        <div class="container">
+
+            <form action="/submitTest/{{ exam_id }}" method="post" class="form-box">{% csrf_token %}
+            <p id="errordiv" style="color:red"></p>
+          <div class="row align-items-center">
+              {% for q in questions %}
+                <div class="col-lg-12 align-items-center justify-content-center text-center">
+              <div class="row align-items-center">
+                <div class="col-lg-12 center"  style="border-style: solid;
+  border-width: 2px 10px 4px 20px;border-color: #7971ea;">
+                    <div id="'ques_no'+{{ q.0 }}">.&nbsp;{{ q.1 }}</div>
+                     <script type="text/javascript">
+                        var c = getcount();
+                        var qele = document.getElementById("'ques_no'+{{ q.0 }}");
+                        qele.innerText = c+qele.innerText;
+                    </script>
+                    <div style="position: relative;right: 0">Marks: {{ q.3}}</div>
+                    <div id="{{ q.0 }}+ '_' +{{ q.4 }}"></div>
+                    <script type="text/javascript">
+                        getType("{{ q.0 }}+ '_' +{{ q.4 }}",{{ q.2 |safe|escape}},'{{ q.4 }}');
+                    </script>
+                </div>
+              </div>
+            </div>
+                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+              {% endfor %}
+           <div class="form-group">
+                      <input type="submit" class="btn btn-primary btn-pill" value="Submit">
+                    </div>
+          </div>
+                </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div> <!-- .site-wrap -->
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'js/jquery.sticky.js' %}"></script>
+
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>

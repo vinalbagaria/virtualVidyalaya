@@ -1,0 +1,24 @@
+{% extends "teacherIndex.html" %}
+{% load static %}
+{% block content %}
+    <form action="/gradeSubmission/{{ submission.0}}" method="post">{% csrf_token %}
+        <table>
+            <tr><th>Assignment Title - {{ submission.6 }}</th></tr>
+            <tr><th>Student Name - {{ submission.1 }}</th></tr>
+            {% for file in files %}
+                <tr><td><a href="{{ file.0 }}">Uploaded file - {{ file.1 }}</a></td></tr>
+            {% endfor %}
+            <tr><td>Last Modified - {{ submission.3 }}</td></tr>
+            <tr><td>Due Date - {{ submission.4 }}</td></tr>
+            {% if submission.4 >= submission.3 %}
+                <tr><td bgcolor="#adff2f">Submission On Time  - {{ submission.5 }} Early</td></tr>
+            {% else %}
+                <tr><td bgcolor="#ff4500">Submission Dealyed by  - {{ submission.5 }} Late</td></tr>
+            {% endif %}
+            <tr><td>Marks - <input type="text" name="marks"></td></tr>
+            <tr><td>Out Of - {{ submission.7 }}</td></tr>
+            <tr><td>Feedback (Comments) - <input type="text" name="feedback"></td></tr>
+            <tr><td><input type="submit" value="Apply Changes"></td></tr>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "teacherIndex.html" %}
+{% block content %}
+    <div class="intro-section" id="home-section">
+
+      <div class="slide-1" style="background-image: url('../static/images/hero_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                  <h1  data-aos="fade-up" data-aos-delay="100">Class</h1>
+                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">Create New Class</p>
+                </div>
+
+                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                  <form action="/createClass/" method="post" class="form-box">{% csrf_token %}
+                    <h3 class="h4 text-black mb-4">Create Class</h3>
+                    <div class="form-group">
+                      <input type="text" name="name" class="form-control" placeholder="Name" required>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-primary btn-pill" value="Create" required>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+{% endblock %}

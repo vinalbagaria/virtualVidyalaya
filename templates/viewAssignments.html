@@ -1,0 +1,29 @@
+{% extends "teacherIndex.html" %}
+{% block content %}
+    <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 1000px;">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Assignments</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -550px">
+      <div class="container">
+        <div class="row">
+            {% for assignment in assignments %}
+                <div class="col-lg-4">
+                <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
+                    <span class="course-price">{{ assignment.3 }}</span>
+                    <div class="meta">Course: {{ assignment.2 }}</div>
+                    <h3><a href="/editAssignment/{{ assignment.0 }}">{{assignment.1 }}</a></h3>
+                  </div>
+                </div>
+                </div>
+            {% endfor %}
+
+        </div>
+      </div>
+      </div>
+{% endblock %}

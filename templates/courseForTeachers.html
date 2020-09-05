@@ -1,0 +1,52 @@
+{% extends "teacherIndex.html" %}
+{% block content %}
+    <div class="intro-section" id="home-section">
+
+      <div class="slide-1" style="background-image: url('../static/images/hero_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                  <h1  data-aos="fade-up" data-aos-delay="100">{{ course.0 }}</h1>
+                  <p data-aos="" data-aos-delay="300"><a href="/createAssignment/{{ course.4 }}" class="btn btn-primary py-3 px-5 btn-pill">Create Assignment</a></p>
+                  <p data-aos="" data-aos-delay="300"><a href="/viewAssignments/{{ course.4 }}" class="btn btn-primary py-3 px-5 btn-pill">View Assignments</a></p>
+                  <p data-aos="" data-aos-delay="300"><a href="/createExam/{{ course.4 }}" class="btn btn-primary py-3 px-5 btn-pill">Create Exam</a></p>
+                  <p data-aos="" data-aos-delay="300"><a href="/viewExams/{{ course.4 }}" class="btn btn-primary py-3 px-5 btn-pill">View Exam</a></p>
+
+                </div>
+
+                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                <form action="/editCourse/{{ course.4}}" method="post" class="form-box">{% csrf_token %}
+                    <h3 class="h4 text-black mb-4">Edit Course</h3>
+                    <div class="form-group">
+                        Course Name
+                      <input type="text" class="form-control" name="name" value="{{ course.0 }}">
+                    </div>
+                    <div class="form-group">
+                        Incharge
+                      <input type="text" class="form-control" value="{{ course.1 }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        Date Added
+                      <input type="text" class="form-control" value="{{ course.2 }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        Description
+                      <input type="text" class="form-control" name="description" value="{{ course.3 }}">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-primary btn-pill" value="Apply Changes">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

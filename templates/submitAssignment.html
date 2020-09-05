@@ -1,0 +1,16 @@
+{% extends 'studentIndex.html' %}
+{% block content %}
+    <form action="/submitAssignment/{{ assignment.0 }}" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div>Title - {{ assignment.1 }}</div>
+        <div>Max Size(MB) - {{ assignment.2 }}</div>
+        <input type="text" name="no_of_attachments" value="{{ assignment.3 }}" hidden>
+        <div>Max No.of attachments - {{ assignment.3 }}</div>
+        <div>Due Date - {{ assignment.5 }}</div>
+
+            {% for i in a %}
+                Upload <input type="file" name="file_{{ i }}">
+            {% endfor %}
+
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
