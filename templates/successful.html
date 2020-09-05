@@ -1,34 +1,88 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>403 Invalid Credentials</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="404 Error Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- font files -->
-<link href="//fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
-<!-- /font files -->
-<!-- css files -->
-<link href="{% static '/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-<!-- /css files -->
-<body style = "background: linear-gradient(#2e9028, #2e9028) !important;">
-<div class="agileits-main">
-	<a href="#"><h1><span>Successful</span>Pariksha</h1></a>
-	<div class="w3ls-container text-center">
-		<h3 class="img-txt">Hurreh, an sucessful event!</h3>
+  <head>
+    <title>Virtual विद्यालय</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <p>Successful Event Occured</p>
-            <div class="agileits-link">
-			<a href="http://127.0.0.1:8000/">take me home</a>
-		    </div>
-	</div>
-	<div class="w3ls-footer">
-		<p> &copy; 2020 Successful event. All Rights Reserved | Design by <a href="http://127.0.0.1:8000/" target="=_blank">Pariksha</a></p>
-	</div>
 
-</div>
-</body>
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+      {% block content %}
+      <div class="intro-section" id="home-section">
+
+      <div class="slide-1" style="background-image: url('../static/images/hero_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                  <h1 style="color: #7971ea" data-aos="fade-up" data-aos-delay="100">Successful</h1>
+                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">The event was successful.</p>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+      {% endblock %}
+
+
+
+
+  </div> <!-- .site-wrap -->
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'js/jquery.sticky.js' %}"></script>
+
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
 </html>

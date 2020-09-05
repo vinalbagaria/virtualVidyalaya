@@ -4,13 +4,13 @@
     <div class="site-section courses-title" id="courses-section" style="position: relative;top: 40px;height: 500px;">
       <div class="container">
         <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+          <div class="col-lg-7 text-center"  data-aos-delay="">
             <h2 class="section-title">Assignments</h2>
           </div>
         </div>
       </div>
     </div>
-      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -50px">
+      <div class="site-section courses-entry-wrap"  data-aos-delay="100" style="position: relative;top: -50px">
       <div class="container">
         <div class="row">
             {%  for assignment in assignments %}
@@ -34,13 +34,13 @@
     <div class="site-section courses-title" id="courses-section" style="position: relative;top: 0; height: 1000px;">
       <div class="container">
         <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+          <div class="col-lg-7 text-center" data-aos-delay="">
             <h2 class="section-title">Exams</h2>
           </div>
         </div>
       </div>
     </div>
-      <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -600px">
+      <div class="site-section courses-entry-wrap"  data-aos-delay="100" style="position: relative;top: -600px">
       <div class="container">
         <div class="row">
             {%  for exam in exams %}
@@ -51,7 +51,7 @@
                     {% else %}
                         <span class="course-price" style="background: green">Due Date - {{ exam.1 }}</span>
                     {% endif %}
-                    <h3><a href="/startTest/{{ exam.2 }}">{{ exam.0 }}</a></h3>
+                    <h3><a href="/viewResults/{{ exam.2 }}">{{ exam.0 }}</a></h3>
                   </div>
                 </div>
                 </div>

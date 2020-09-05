@@ -28,8 +28,8 @@ def addTeacher(request):
                 cur.execute(query,(user_id,first_name,last_name,qualification,research_interests,email_id))
                 con.commit()
                 return render(request,'successful.html')
-            except:
-                return render(request, 'unsuccessful.html')
+            except Exception as e:
+                return render(request, 'unsuccessful.html',{'e':e})
         else:
             return render(request, 'addTeacher.html')
     return render(request, 'aboutus.html')
@@ -46,8 +46,8 @@ def addAdmin(request):
                 cur.execute(query, (username, password, "admin"))
                 con.commit()
                 return render(request, 'successful.html')
-            except:
-                return render(request, 'unsuccessful.html')
+            except Exception as e:
+                return render(request, 'unsuccessful.html',{'e':e})
         else:
             return render(request, 'addAdmin.html')
     return render(request, 'aboutus.html')
@@ -75,7 +75,7 @@ def addStudent(request):
                 return render(request,'successful.html')
             except Exception as e:
                 print(e)
-                return render(request, 'unsuccessful.html')
+                return render(request, 'unsuccessful.html',{'e':e})
         else:
             con = DBConnection.getConnection()
             cur = con.cursor()

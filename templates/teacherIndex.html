@@ -188,6 +188,7 @@
             var wrapper1= document.createElement('div');
             var wrapper2= document.createElement('div');
             var wrapper3= document.createElement('div');
+            var wrapper4= document.createElement('div');
             var cnt = getCount();
             wrapper1.innerHTML= '<div ><h4>Question ' + cnt + '</h4>\n' +
                 '            <input name="question_'+cnt+'" type = "text"  placeholder="Enter Question">\n' +
@@ -208,14 +209,19 @@
             wrapper3.innerHTML= '<div name="mks_' + cnt + '"><h4>Marks</h4>\n' +
                 '            <input type="text" name="marks_' + cnt + '" onchange="setTotalMks(this)">' +
                 '        </div>';
+             wrapper4.innerHTML= '<div>Course outcomes (Enter comma separated outcomes)\n' +
+                 '                        <input type="text" name="course_outcome' + cnt + '">\n' +
+                 '                        </div>';
             var question= wrapper1.firstChild;
             var answer= wrapper2.firstChild;
             var mks= wrapper3.firstChild;
+            var course_outcomes= wrapper4.firstChild;
             var newDiv = document.createElement('div');
             newDiv.className = "form-box";
             newDiv.append(question);
             newDiv.append(answer);
             newDiv.append(mks);
+            newDiv.append(course_outcomes);
             question_layout.append(newDiv);
             {#question_layout.append(question);#}
             {#question_layout.append(answer);#}
@@ -337,7 +343,7 @@
     </div>
       <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100" style="position: relative;top: -550px">
       <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             {%  for course in courses %}
                 <div class="col-lg-4">
                 <div class="course bg-white h-100 align-self-stretch"> <div class="course-inner-text py-4 px-4">
@@ -345,7 +351,9 @@
                     <div class="meta">Incharge: {{ course.1 }}</div>
                     <h3><a href="/courseForTeachers/{{ course.4 }}">{{ course.0 }}</a></h3>
                     <p>Description:<br>{{ course.3 }}</p>
+
                   </div>
+
                 </div>
                 </div>
             {% endfor %}
