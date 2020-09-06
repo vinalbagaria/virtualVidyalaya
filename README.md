@@ -1,11 +1,11 @@
 # virtualVidyalaya
 Virtual Vidyalaya is a platform wherein continuous assessments, final exams and even mock exams can be conducted using web proctored environment with automatic assessments for mock exams including descriptive long answers. It provides personalized feedback after each exam and progress analysis for a class and a student.
+Link for the presentation - https://docs.google.com/presentation/d/1QknzW5vdnoFEHapfluiHmaeFrb3Xx6kSlL0jJSVKT8Q/edit?usp=sharing
+Link for the video - https://youtu.be/2n6XQWpf1Co
 
 For running the system,
 You need to have a browser and python installed, then in the command prompt, run the following command
 >pip install -r requirements.txt
-
-The requirements will get downloaded with the help of pip, the versions for pip may vary.
 
 Finally, when all the requirements will get installed, run the django application by running the command 
 >python manage.py runserver
