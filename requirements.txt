@@ -6,15 +6,19 @@ certifi==2020.6.20
 chardet==3.0.4
 click==7.1.2
 Cython==0.29.14
+dj-database-url==0.5.0
 Django==3.1
+django-heroku==0.3.1
 docutils==0.15.2
 gensim==3.8.3
+gunicorn==20.0.4
 idna==2.10
 jmespath==0.10.0
 joblib==0.16.0
 language-check==1.1
 nltk==3.5
 numpy==1.19.1
+psycopg2==2.8.5
 PyMySQL==0.10.0
 python-dateutil==2.8.1
 pytz==2020.1
@@ -27,3 +31,4 @@ smart-open==2.1.1
 sqlparse==0.3.1
 tqdm==4.48.2
 urllib3==1.25.10
+whitenoise==5.2.0
