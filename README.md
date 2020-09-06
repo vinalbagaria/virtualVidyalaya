@@ -3,6 +3,10 @@ Virtual Vidyalaya is a platform wherein continuous assessments, final exams and 
 Link for the presentation - https://docs.google.com/presentation/d/1QknzW5vdnoFEHapfluiHmaeFrb3Xx6kSlL0jJSVKT8Q/edit?usp=sharing
 Link for the video - https://youtu.be/2n6XQWpf1Co
 
+Sample credentials for the system:
+Admin username - admin1
+Admin password - admin1
+
 For running the system,
 You need to have a browser and python installed, then in the command prompt, run the following command
 >pip install -r requirements.txt
