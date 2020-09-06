@@ -51,6 +51,10 @@ urlpatterns = [
     path('submitAssignment/<str:assignment_id>',submitAssignment),
     path('gradeSubmission/<str:submission_id>',gradeSubmission),
     path('testEditor/',testEditor),
+    path('viewResults/<str:exam_id>',viewResults),
+    path('giveAccess/<str:course_id>',giveAccess),
+    path('forum/<str:course_id>',forum),
+
 
 
     path('studentIndex/',studentIndex),
@@ -59,6 +63,9 @@ urlpatterns = [
     path('test/<str:exam_id>',test),
     path('startTest/<str:exam_id>',startTest),
     path('submitTest/<str:exam_id>',submitTest),
+    path('progressAnalysis/',progressAnalysis),
+    path('viewAnalysis/<str:exam_id>',viewAnalysis),
+    path('analyticsForTeacher/',analyticsForTeacher),
 
 
 ]
