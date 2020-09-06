@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'pariksha.urls'
+ROOT_URLCONF = 'VirtualVidyalaya.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pariksha.wsgi.application'
+WSGI_APPLICATION = 'VirtualVidyalaya.wsgi.application'
 
 
 # Database

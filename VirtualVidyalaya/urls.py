@@ -18,7 +18,7 @@ from django.urls import path
 from adminRole.views import *
 from studentRole.views import *
 from teacherRole.views import *
-from pariksha.views import *
+from VirtualVidyalaya.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),

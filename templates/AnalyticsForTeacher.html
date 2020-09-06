@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+    </script>
+
+</head>
+<body>
+<div>
+    <canvas id="Class_performance" width="400" height="100"></canvas>
+</div>
+<br><br>
+<hr>
+<div>
+    <canvas id="Course_outcome" width="200" height="50"></canvas>
+</div>
+<br><br>
+<hr>
+<div>
+    <canvas id="Course" width="200" height="50"></canvas>
+</div>
+<br><br>
+<hr>
+<div>
+    <canvas id="Progress_of_class" width="200" height="60"></canvas>
+</div>
+
+<script type="text/javascript">
+    var colorArray = ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850",
+        '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+        '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+        '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+        '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
+        '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+        '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
+        '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+        '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
+        '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+
+    var ctx = document.getElementById("Class_performance");
+    var class_performance_labels = ['poor', 'average', 'good'];
+    var count_data = [30, 38, 42];
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: class_performance_labels,
+            datasets: [
+                {
+                    label: "Student Count",
+                    data: count_data,
+                    backgroundColor: colorArray.slice(0, class_performance_labels.length),
+                }
+            ]
+        },
+
+        options: {
+            title: {
+                fontSize: 24,
+                display: true,
+                text: 'Class Performance Analysis'
+            }
+        }
+    });
+    var course_labels = ["Maths", "Science", "English"];
+    var course_avg_marks = [50, 60, 40];
+    var ctx2 = document.getElementById("Course");
+    var myChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: course_labels,
+            datasets: [
+                {
+                    label: "Marks",
+                    backgroundColor: colorArray.slice(0, course_labels.length),
+                    data: course_avg_marks
+                }
+            ]
+        },
+        options: {
+            title: {
+                fontSize: 24,
+                display: true,
+                text: 'Course Wise Marks Analysis'
+            }
+        }
+    });
+    var course_outcome_labels = ["Fuzzy", "NLP", "Neural_Networks"];
+    var course_outcome_avg_marks = [50, 60, 40];
+    var ctx3 = document.getElementById("Course_outcome");
+    var myChart = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: course_outcome_labels,
+            datasets: [
+                {
+                    label: "Marks",
+                    backgroundColor: colorArray.slice(0, course_labels.length),
+                    data: course_outcome_avg_marks
+                }
+            ]
+        },
+        options: {
+            title: {
+                fontSize: 24,
+                display: true,
+                text: 'Course Outcome Wise Marks Analysis'
+            }
+        }
+    });
+
+    new Chart(document.getElementById("Progress_of_class"), {
+        type: 'line',
+        data: {
+            labels: ["2015-03-15 13:34:23", "2015-03-25 13:24:20", "2015-04-25 14:12:00"],
+            datasets: [{
+                data: [86, 114, 106],
+                label: "TE Comps",
+                borderColor: "#3e95cd",
+                fill: false
+            }, {
+                data: [282, 350, 411],
+                label: "TE IT",
+                borderColor: "#8e5ea2",
+                fill: false
+            }, {
+                data: [168, 170, 178],
+                label: "TE EXTC",
+                borderColor: "#3cba9f",
+                fill: false
+            }, {
+                data: [40, 20, 10],
+                label: "SY MCA",
+                borderColor: "#e8c3b9",
+                fill: false
+            }, {
+                data: [6, 3, 2],
+                label: "TE ETRX",
+                borderColor: "#c45850",
+                fill: false
+            }
+            ]
+        },
+
+        options: {
+            scales: {
+                xAxes: [{
+                    type: 'time'
+                }]
+            },
+            title: {
+                fontSize: 24,
+                display: true,
+                text: 'Progress of each class with time'
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

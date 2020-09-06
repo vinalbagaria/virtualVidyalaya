@@ -1,6 +1,8 @@
 from datetime import datetime
 def getToday():
-    return str(datetime.date())
+    now = datetime.now()
+    date = now.strftime("%Y-%m-%d")
+    return str(date)
 
 def getCurDateTime():
     now = datetime.now()

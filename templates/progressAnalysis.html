@@ -1,0 +1,110 @@
+{% extends 'studentIndex.html' %}
+{% block content %}
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+    </script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+<div style="position: relative;top:140px">
+    <canvas id="Exam_marks" width="400" height="100"></canvas>
+</div>
+
+<div style="position: relative;top:340px">
+    <canvas id="Exam_Course" width="200" height="50"></canvas>
+</div>
+
+<script type="text/javascript">
+    var colorArray = ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850",
+        '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+        '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+        '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+        '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
+        '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+        '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
+        '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+        '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
+        '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+
+    var ctx = document.getElementById("Exam_marks");
+    var date_labels = JSON.parse("{{date_time|escapejs}}");
+    var marks_data = JSON.parse("{{score|escapejs}}");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: date_labels,
+            datasets: [
+                {
+                    label: "Marks",
+                    data: marks_data,
+                    backgroundColor: colorArray[0],
+                    fill: false
+                }
+            ]
+        },
+
+        options: {
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date_time'
+                    },
+                    type: 'time',
+                    time: {
+                        unit: 'day'
+                    }
+                }]
+            },
+            title: {
+                fontSize: 24,
+                display: true,
+                text: 'Exam Wise Progress Analysis'
+            }
+        }
+    });
+    var course_labels = ["Mathematics", "Science", "English"];
+    var course_marks = [50, 60, 40];
+    var ctx2 = document.getElementById("Exam_Course");
+    var myChart = new Chart(ctx2, {
+        type: 'horizontalBar',
+        data: {
+            labels: course_labels,
+            datasets: [
+                {
+                    label: "Marks",
+                    backgroundColor: colorArray.slice(0, course_labels.length),
+                    data: course_marks
+                }
+            ]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+                fontSize: 24,
+                display: true,
+                text: 'Course Wise Marks Analysis'
+            },
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Marks'
+                    },
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Course'
+                    }
+                }]
+            }
+        }
+    });
+
+</script>
+{% endblock %}

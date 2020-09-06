@@ -1,0 +1,92 @@
+{% extends 'studentIndex.html' %}
+{% block content %}
+<script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+</script>
+
+</head>
+<body>
+
+<div style="position: relative;top:140px">
+    <canvas id="Knowledge_grammar" width="400" height="100"></canvas>
+</div>
+<div>
+
+</div>
+<div style="position: relative;top:340px">
+
+    <canvas id="Course-Outcome" width="500" height="200"></canvas>
+</div>
+
+<script type="text/javascript">
+    var colorArray = ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
+        '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+        '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+        '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+        '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
+        '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+        '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
+        '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+        '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
+        '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+
+    var ctx = document.getElementById("Knowledge_grammar");
+    var KG_marks = JSON.parse("{{KG_marks|escapejs}}");
+    console.log(KG_marks);
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Knowledge", "Grammar"],
+            datasets: [
+                {
+                    label: "Area Analysis",
+                    data: KG_marks,
+                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                }
+            ]
+        },
+
+        options: {
+            title: {
+                fontSize:24,
+                display: true,
+                text: 'Area Wise Analysis'
+            }
+        }
+    });
+    {#var course_outcome_labels = ["FuzzyLogic","NeuralNetworks","NLP","Classifiers"];#}
+    var course_outcome_labels = JSON.parse("{{c_out|escapejs}}");
+    {#var course_outcome_marks = [20,25,18,29];#}
+    var course_outcome_marks = JSON.parse("{{mks_out|escapejs}}");
+    var ctx2 = document.getElementById("Course-Outcome");
+    var myChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: course_outcome_labels,
+            datasets: [
+                {
+                    label: "Marks",
+                    backgroundColor: colorArray.slice(0,course_outcome_labels.length),
+                    data: course_outcome_marks
+                }
+            ]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+                fontSize:24,
+                display: true,
+                text: 'Course Outcome wise Analysis'
+            },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+    });
+
+</script>
+{% endblock %}

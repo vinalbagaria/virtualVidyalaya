@@ -59,8 +59,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
       <style>
           .circle {
-              width: 150px;
-              height: 150px;
+              width: 145px;
+              height: 145px;
               line-height: 50px;
               border-radius: 50%;
               font-size: 10px;
@@ -137,9 +137,10 @@
                 //if seconds becomes zero, then page alert time up
                 if (mins < 0) {
                     alert('time up');
-                    window.location.href = "/endTest/";
+                    {#window.location.href = "/submitTest/";#}
                     minutes.value = 0;
                     seconds.value = 0;
+                    $("#submitButton").click();
                 }
                 //if seconds > 0 then seconds is decremented
                 else {
@@ -159,19 +160,21 @@
             return secs - Math.round(mins * 60);
         }
 
-       {#$(window).blur(function () {#}
-       {#      if ($('html').is(':focus')) {#}
-       {#         // dont check tab switching#}
-       {#     }#}
-       {#     else {#}
-       {#         count++;#}
-       {#         if (count == 2){#}
-       {#              window.location.href = '/endTest/';#}
-       {#         }#}
-       {#         alert('You are not allowed to leave page  if you leave again then test ends');#}
-       {#         }#}
-       {##}
-       {# });#}
+       $(window).blur(function () {
+             if ($('html').is(':focus')) {
+                // dont check tab switching
+            }
+            else {
+                count++;
+                if (count == 5){
+                     window.location.href = '/endTest/';
+                }
+                else if (count == 4){
+                    alert('You are not allowed to leave page if you leave again then test ends');
+                }
+             }
+
+        });
         var cnt = 0;
         function getcount(){
             cnt++;
@@ -215,12 +218,12 @@
   <body onload="countdown();">
     <input id = "timer" type="text" value = "{{ exam.0 }}" hidden>
     <div class="circle"  style="color:#7971ea;position: absolute;left:5px">
-        <h2><input id="minutes" type="text" style="width: 60px;
-                border: none;
-                font-weight: bolder; color: black; "><font size="5"> :</font>
-        <input id="seconds" type="text" style="width: 60px;
-                            border: none; font-weight: bolder; color: black;">
-            </h2>
+        <div style="position: absolute;top: 50px;left: 5px;background: transparent;"><h2><input id="minutes" type="text" style="width: 60px;
+                border: none;background: transparent;
+                font-weight: bolder; color: black; " readonly><span style="color: BLACK">:</span>
+        <input id="seconds" type="text" style="width: 60px;background: transparent;
+                            border: none; font-weight: bolder; color: black;" readonly>
+        </h2></div>
     </div><br><br><br><br>
   <div class="site-wrap">
     <div class="site-mobile-menu site-navbar-target">

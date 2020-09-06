@@ -98,6 +98,3 @@ def evaluate(actualAnswer,studentAnswer,type,knowledge_ratio,grammar_ratio,marks
     marksObtained = knowledge_marks + grammar_marks
     return marksObtained,knowledge_marks,grammar_marks,msgs
 
-score,msgs = checkGrammar(['Buisiness are mine. I is very good.','Buiness is a lot of difficult.'],5)
-print("score: ",score)
-print("msgs: ",msgs)
