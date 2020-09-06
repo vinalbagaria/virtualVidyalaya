@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7dec1ce8-da06-4d81-902e-b23b7668a12d" name="Default Changelist" comment="" />
+    <list default="true" id="7dec1ce8-da06-4d81-902e-b23b7668a12d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/nltk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/owl.carousel.min.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,15 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/studentIndex.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/demo.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,8 +53,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VirtualVidyalaya/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+            <state relative-caret-position="223">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
+              <folding>
+                <element signature="e#306#326#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nltk">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/owl.carousel.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="2247" selection-start-line="5" selection-start-column="2247" selection-end-line="5" selection-end-column="2247" />
             </state>
           </provider>
         </entry>
@@ -91,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/teacherRole/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -115,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Test</find>
       <find>studentIn</find>
       <find>gradeMan</find>
       <find>submit grad</find>
@@ -145,6 +160,7 @@
       <find>demo.</find>
       <find>pariksha</find>
       <find>teacherIndex</find>
+      <find>owl.video.play.png</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,8 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/startTest.html" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/createCourse.html" />
         <option value="$PROJECT_DIR$/utility_functions/date_functions.py" />
         <option value="$PROJECT_DIR$/templates/viewAssignments.html" />
@@ -199,11 +213,13 @@
         <option value="$PROJECT_DIR$/templates/chats.html" />
         <option value="$PROJECT_DIR$/templates/demo.html" />
         <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/VirtualVidyalaya/settings.py" />
         <option value="$PROJECT_DIR$/VirtualVidyalaya/asgi.py" />
         <option value="$PROJECT_DIR$/VirtualVidyalaya/wsgi.py" />
         <option value="$PROJECT_DIR$/VirtualVidyalaya/urls.py" />
         <option value="$PROJECT_DIR$/utility_functions/urls.py" />
+        <option value="$PROJECT_DIR$/VirtualVidyalaya/settings.py" />
+        <option value="$PROJECT_DIR$/nltk" />
+        <option value="$PROJECT_DIR$/static/css/owl.carousel.min.css" />
       </list>
     </option>
   </component>
@@ -239,7 +255,7 @@
             <path>
               <item name="VirtualVidyalaya" type="b2602c69:ProjectViewProjectNode" />
               <item name="VirtualVidyalaya" type="462c0819:PsiDirectoryNode" />
-              <item name="teacherRole" type="462c0819:PsiDirectoryNode" />
+              <item name="VirtualVidyalaya" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,12 +356,12 @@
       <option name="presentableId" value="Default" />
       <updated>1598555096477</updated>
       <workItem from="1598555285319" duration="220844000" />
-      <workItem from="1599356210171" duration="1177000" />
+      <workItem from="1599356210171" duration="2610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222021000" />
+    <option name="totallyTimeSpent" value="223454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -400,20 +416,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/addStudent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="54" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addAdmin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="32" column="12" lean-forward="true" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/addTeacher.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -670,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualVidyalaya/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualVidyalaya/asgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -723,10 +718,34 @@
     <entry file="file://$PROJECT_DIR$/teacherRole/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualVidyalaya/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+          <folding>
+            <element signature="e#306#326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nltk">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/owl.carousel.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="2247" selection-start-line="5" selection-start-column="2247" selection-end-line="5" selection-end-column="2247" />
         </state>
       </provider>
     </entry>
