@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dec1ce8-da06-4d81-902e-b23b7668a12d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualVidyalaya/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualVidyalaya/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/mediaelementplayer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/mediaelementplayer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/jquery-ui.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VirtualVidyalaya/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="291">
@@ -49,6 +47,15 @@
               <folding>
                 <element signature="e#306#326#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/mediaelementplayer.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="32" column="53" lean-forward="true" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -122,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gradeMan</find>
       <find>submit grad</find>
       <find>view anal</find>
       <find>viewRes</find>
@@ -152,6 +158,7 @@
       <find>teacherIndex</find>
       <find>owl.video.play.png</find>
       <find>mejs-controls.svg</find>
+      <find>ui-bg_gloss-wave_55_5c9ccc_500x100.png</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/utility_functions/date_functions.py" />
         <option value="$PROJECT_DIR$/templates/viewAssignments.html" />
         <option value="$PROJECT_DIR$/templates/addStudent.html" />
         <option value="$PROJECT_DIR$/templates/createClass.html" />
@@ -211,6 +217,7 @@
         <option value="$PROJECT_DIR$/static/css/owl.carousel.min.css" />
         <option value="$PROJECT_DIR$/VirtualVidyalaya/settings.py" />
         <option value="$PROJECT_DIR$/static/css/mediaelementplayer.css" />
+        <option value="$PROJECT_DIR$/static/css/jquery-ui.css" />
       </list>
     </option>
   </component>
@@ -246,7 +253,13 @@
             <path>
               <item name="VirtualVidyalaya" type="b2602c69:ProjectViewProjectNode" />
               <item name="VirtualVidyalaya" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VirtualVidyalaya" type="b2602c69:ProjectViewProjectNode" />
               <item name="VirtualVidyalaya" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,16 +360,15 @@
       <option name="presentableId" value="Default" />
       <updated>1598555096477</updated>
       <workItem from="1598555285319" duration="220844000" />
-      <workItem from="1599356210171" duration="3826000" />
+      <workItem from="1599356210171" duration="4862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224670000" />
+    <option name="totallyTimeSpent" value="225706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -408,23 +420,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/headerTeacher.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="157" column="112" selection-start-line="157" selection-start-column="112" selection-end-line="157" selection-end-column="112" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/aboutus.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -724,12 +719,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/mediaelementplayer.css">
+    <entry file="file://$PROJECT_DIR$/static/css/jquery-ui.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
+        <state relative-caret-position="7106">
+          <caret line="418" selection-start-line="418" selection-end-line="418" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/magnific-popup.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/VirtualVidyalaya/settings.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -738,6 +736,13 @@
           <folding>
             <element signature="e#306#326#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/mediaelementplayer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="32" column="53" lean-forward="true" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
         </state>
       </provider>
     </entry>
