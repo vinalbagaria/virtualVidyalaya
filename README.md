@@ -1,10 +1,14 @@
 # virtualVidyalaya
 Virtual Vidyalaya is a platform wherein continuous assessments, final exams and even mock exams can be conducted using web proctored environment with automatic assessments for mock exams including descriptive long answers. It provides personalized feedback after each exam and progress analysis for a class and a student.
-Link for the presentation - https://docs.google.com/presentation/d/1QknzW5vdnoFEHapfluiHmaeFrb3Xx6kSlL0jJSVKT8Q/edit?usp=sharing
-Link for the video - https://youtu.be/2n6XQWpf1Co
+
+Link for the presentation - https://docs.google.com/presentation/d/1CAPiHWPB8h05gwvAf-UWeee-ER0IVqh5a_AzKQrQrVE/edit?usp=sharing
+
+Link for the video - https://drive.google.com/file/d/1asNrK31VNxKnItHJVbB9VkzwNYlojgYl/view?usp=sharing
 
 Sample credentials for the system:
+
 Admin username - admin1
+
 Admin password - admin1
 
 For running the system,
